@@ -6,10 +6,10 @@ namespace WebNUnitTestPractice.Pages
     public class MainPage
     {
         private readonly IWebDriver driver;
-        private readonly By UsernameLocator = By.Id("user-name");
-        private readonly By PasswordLocator = By.Id("password");
-        private readonly By LoginButtonLocator = By.Id("login-button");
-        private readonly By ErrorMessageLocator = By.CssSelector("h3[data-test='error']");
+        private readonly By usernameLocator = By.Id("user-name");
+        private readonly By passwordLocator = By.Id("password");
+        private readonly By loginButtonLocator = By.Id("login-button");
+        private readonly By errorMessageLocator = By.CssSelector("h3[data-test='error']");
 
         public MainPage (IWebDriver driver)
         {
@@ -18,30 +18,30 @@ namespace WebNUnitTestPractice.Pages
 
         public MainPage EnterUsername(string username)
         {
-            driver.FindElement(UsernameLocator).SendKeys(username);
+            driver.FindElement(usernameLocator).SendKeys(username);
             return this;
         }
 
         public MainPage EnterPassword(string password)
         {
-            driver.FindElement(PasswordLocator).SendKeys(password);
+            driver.FindElement(passwordLocator).SendKeys(password);
             return this;
         }
 
         public MainPage ClickLoginButton()
         {
-            driver.FindElement(LoginButtonLocator).Submit();
+            driver.FindElement(loginButtonLocator).Submit();
             return this;
         }
 
         public void ErrorMessageIsShown(string expectedErrorMessage)
         {
-            Assert.That(driver.FindElement(ErrorMessageLocator).Text, Is.EqualTo(expectedErrorMessage));
+            Assert.That(driver.FindElement(errorMessageLocator).Text, Is.EqualTo(expectedErrorMessage));
         }
 
-        public InventoryPage ClickLoginButtonAndRedirectedSuccessfully()
+        public InventoryPage ClickLoginButtonAndTakenToProductList()
         {
-            driver.FindElement(LoginButtonLocator).Submit();
+            driver.FindElement(loginButtonLocator).Submit();
             return new InventoryPage(driver);
         }
 
