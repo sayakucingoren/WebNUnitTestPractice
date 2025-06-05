@@ -2,7 +2,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using WebNUnitTestPractice.Pages;
 
-namespace WebNUnitTestPractice
+namespace WebNUnitTestPractice.Tests
 {
     public class LoginTests
     {
@@ -11,14 +11,14 @@ namespace WebNUnitTestPractice
         [SetUp]
         public void Setup()
         {
-            this.driver = new ChromeDriver();
-            this.driver.Navigate().GoToUrl("https://www.saucedemo.com/");
+            driver = new ChromeDriver();
+            driver.Navigate().GoToUrl("https://www.saucedemo.com/");
         }
 
         [Test]
         public void TestGoodLoginDetails()
         {
-            new MainPage(this.driver)
+            new MainPage(driver)
                 .EnterUsername("standard_user")
                 .EnterPassword("secret_sauce")
                 .ClickLoginButtonAndTakenToProductList()
@@ -28,7 +28,7 @@ namespace WebNUnitTestPractice
         [Test]
         public void TestGoodLoginDetailsOnSlowPerformance()
         {
-            new MainPage(this.driver)
+            new MainPage(driver)
                 .EnterUsername("performance_glitch_user")
                 .EnterPassword("secret_sauce")
                 .ClickLoginButtonAndTakenToProductList()
@@ -39,7 +39,7 @@ namespace WebNUnitTestPractice
         [Test]
         public void TestEmptyUserNameAndPassword()
         {
-            new MainPage(this.driver)
+            new MainPage(driver)
                 .EnterUsername("")
                 .EnterPassword("")
                 .ClickLoginButton()
@@ -49,7 +49,7 @@ namespace WebNUnitTestPractice
         [Test]
         public void TestEmptyUserName()
         {
-            new MainPage(this.driver)
+            new MainPage(driver)
                 .EnterUsername("")
                 .EnterPassword("secret_sauce")
                 .ClickLoginButton()
@@ -59,7 +59,7 @@ namespace WebNUnitTestPractice
         [Test]
         public void TestEmptyPassword()
         {
-            new MainPage(this.driver)
+            new MainPage(driver)
                 .EnterUsername("standard_user")
                 .EnterPassword("")
                 .ClickLoginButton()
@@ -69,7 +69,7 @@ namespace WebNUnitTestPractice
         [Test]
         public void TestLockedOutUser()
         {
-            new MainPage(this.driver)
+            new MainPage(driver)
                 .EnterUsername("locked_out_user")
                 .EnterPassword("secret_sauce")
                 .ClickLoginButton()
@@ -79,7 +79,7 @@ namespace WebNUnitTestPractice
         [Test]
         public void TestNonExistentUser()
         {
-            new MainPage(this.driver)
+            new MainPage(driver)
                 .EnterUsername("x")
                 .EnterPassword("x")
                 .ClickLoginButton()
