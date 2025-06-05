@@ -1,8 +1,7 @@
 # WebNUnitTestPractice
 
-Automated UI tests using **Selenium WebDriver** and **NUnit** in **C#**, built around scenarios from [saucedemo.com](https://www.saucedemo.com/).  
-A personal refresher project for hands-on testing practice.  
-Project is incrementally updated. 
+A personal automation project using **Selenium WebDriver** and **NUnit** in **C#**, built around real-world scenarios from https://www.saucedemo.com/.  
+Continuously updated and improved as a hands-on learning and practice platform.
 
 ## Project Structure
 <pre><code>WebNUnitTestPractice/
